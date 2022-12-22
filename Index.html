@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Closure</title>
+  <style>
+    .qst {
+      color: blue;
+    }
+
+    .ans {
+      color: rgb(149, 4, 4);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Closures</h1>
+  <b class="qst">Question.1</b> <br>
+  function counter() <br>
+  { <br>
+    var counter = 0; <br>
+    function IncreaseCounter() <br>
+    { <br>
+      return counter += 1; <br>
+    }; <br>
+    return IncreaseCounter; <br>
+  } <br>
+  var counter = counter(); <br>
+  alert(counter());//1 <br>
+  alert(counter());//2 <br>
+  alert(counter());//3 <br>
+  alert(counter());//4 <br> <br><br>
+
+  <b class="qst">Question.2</b> <br>
+  function counter() <br>
+  { <br>
+    var counter = 0; <br>
+    function IncreaseCounter() <br>
+    { <br>
+      return counter += 1; <br>
+    }; <br>
+    return IncreaseCounter; <br>
+  } <br>
+  var counter = counter(); <br>
+  alert(counter());//1 <br>
+  alert(counter());//2 <br>
+  alert(counter());//3 <br>
+  alert(counter());//4 <br> <br>
+
+  <b class="qst">Question.3</b> <br>
+  let count = 0; <br>
+  (function () <br>
+  { <br>
+    if (count === 0) <br>
+    { <br>
+      let count = 1; <br>
+      console.log(count); //1 <br>
+    } <br>
+    console.log(count); //0 <br>
+  })(); <br> <br>
+
+  <b class="qst">Question.3</b> <br>
+  for (var i = 0; i < 3; i++) <br>
+  { <br>
+    setTimeout(function log() <br> 
+    { <br>
+      console.log(i); <br>
+    }, 1000); <br>
+  } <br>
+  Output : - 3 3 3 <br> <br>
+  
+  <b class="qst">Question.4</b> <br>
+  Write a code to calculate area of a rectangle using inner function. In this case outer function should
+  accept parameter length and inner function should accept parameter breadth. <br>
+  function outerFunction() <br>
+  { <br>
+    let length=5; <br>
+    function innerfunction() <br>
+    { <br>
+      let breadth=10; <br>
+      return length * breadth; <br>
+    } <br>
+    return innerfunction; <br>
+  } <br>
+  const incre=outerFunction(); <br>
+  console.log( incre()); <br>
+  Output : 50 <br><br>
+   
+  <b class="qst">Question.5</b> <br>
+  Take a variable in outer function and create an inner function to increase the counter every time it is called. <br>
+  function outerFunction() <br>
+  {  <br>
+    let counter=0; <br>
+    function innerfunction() <br>
+    { <br>
+      return counter +=1; <br>
+    } return innerfunction; <br>
+  } <br>
+  const incre=outerFunction(); <br>
+  console.log( incre()); <br>
+  console.log( incre()); <br><br>
+  
+  <b class="qst">Question.6</b> <br>
+  var a=12; 
+  (function () 
+  { 
+    alert(a); 
+  })();
+  Output :- 12 <br><br>
+
+  <b class="qst">Question.7</b> <br>
+  var a = 10; <br>
+  var x = (function () <br>
+  { <br>
+    var a = 12; <br>
+    return function () <br>
+    { <br>
+      alert(a); <br>
+    }; <br>
+  })(); <br>
+  x(); <br>
+  Output :-  12 <br><br>
+
+  <b class="qst">Question.8</b> <br>  
+  var globalVar = " xyz"; <br>
+  (function outerFunc(outerArg) <br>
+  { <br>
+    var outerVar='a'; <br>
+    (function innerFunc(innerArg) <br> 
+    { <br>
+      var innerVar='b'; <br>
+      console.log <br>
+      ( <br>
+        "outerArg = " + outerArg + "\n" + <br>
+        "innerArg = " + innerArg + "\n" + <br>
+        "outerVar = " + outerVar + "\n" + <br>
+        "innerVar = " + innerVar + "\n" + <br>
+        "globalVar = " + globalVar); <br>
+      })(456); <br>
+    })(123); <br>
+    Output :- //outerArg=123 //innerArg=456 //outerVar=a //innerVar=b //globalVar=xyz 
+</body>
+</html>
